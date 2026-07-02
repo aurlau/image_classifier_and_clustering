@@ -1,1 +1,14 @@
-name: CI on: push: branches: [ main ] pull_request: workflow_dispatch: concurrency: group: ${{ github.workflow }}-${{ github.ref }} cancel-in-progress: true jobs: ci: uses: aurlau/.github/.github/workflows/python-ci.yml@main permissions: contents: read
+name: CI 
+on: 
+  push: 
+    branches: [main] 
+  pull_request: 
+  workflow_dispatch: 
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }} 
+  cancel-in-progress: true 
+jobs: 
+  ci: 
+    uses: OWNER/.github/.github/workflows/python-ci.yml@main 
+    permissions: 
+      contents: read
